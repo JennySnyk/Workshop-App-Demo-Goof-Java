@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Workshop App Demo - Java</title>
-    <link rel="stylesheet" type="text/css" href="/style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop App Demo - Goof (Java Edition)</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Java To-Do List</h1>
+<div class="container">
+    <h1>Welcome to Workshop App Demo - Goof (Java Edition)</h1>
+    <p>This is a deliberately vulnerable application for security demonstrations.</p>
 
-    <h2>Add a new To-Do</h2>
-    <form action="/add" method="post">
-        <input type="text" name="text" placeholder="Enter a new to-do"/>
-        <button type="submit">Add</button>
-    </form>
+    <div class="todo-section">
+        <h2>To-Do List</h2>
+        <form action="/" method="post">
+            <input type="text" name="text" placeholder="New to-do item">
+            <button type="submit">Add Item</button>
+        </form>
+        <ul>
+            <li th:each="todo : ${todos}">
+                <span th:text="${todo.text}"></span>
+                <form th:action="@{/delete}" method="post" style="display:inline;">
+                    <input type="hidden" name="id" th:value="${todo.id}" />
+                    <button type="submit" style="background-color: #f44336; float: right;">Delete</button>
+                </form>
+            </li>
+        </ul>
+    </div>
 
-    <h2>Current To-Dos</h2>
-    <ul>
-        <li th:each="todo : ${todos}">
-            <span th:text="${todo.text}"></span>
-            <form action="/delete" method="post" style="display:inline;">
-                <input type="hidden" name="id" th:value="${todo.id}"/>
-                <button type="submit">Delete</button>
-            </form>
-        </li>
-    </ul>
+    <div class="vulnerability-links">
+        <h2>Vulnerability Demos</h2>
+        <a href="/sqli">SQL Injection</a>
+        <a href="/xss">Cross-Site Scripting (XSS)</a>
+        <a href="/command-injection">Command Injection</a>
+        <a href="/path-traversal">Path Traversal</a>
+        <a href="/insecure-deserialization">Insecure Deserialization</a>
+        <a href="/ssrf">Server-Side Request Forgery (SSRF)</a>
+        <a href="/unvalidated-redirect">Unvalidated Redirect</a>
+        <a href="/insecure-crypto">Insecure Cryptography</a>
+        <a href="/hardcoded-secrets">Hardcoded Secrets</a>
+        <a href="/log-forging">Log Forging</a>
+        <a href="/xpath-injection">XPath Injection</a>
+        <a href="/ldap-injection">LDAP Injection</a>
+    </div>
 
-    <h2>Vulnerability Demos</h2>
-    <ul>
-        <li><a href="/xss">Cross-Site Scripting (XSS)</a></li>
-        <li><a href="/sqli">SQL Injection</a></li>
-        <li><a href="/command-injection">Command Injection</a></li>
-        <li><a href="/path-traversal">Path Traversal</a></li>
-        <li><a href="/insecure-deserialization">Insecure Deserialization</a></li>
-        <li><a href="/ssrf">Server-Side Request Forgery (SSRF)</a></li>
-        <li><a href="/unvalidated-redirect">Unvalidated Redirect</a></li>
-        <li><a href="/insecure-crypto">Insecure Cryptography</a></li>
-        <li><a href="/hardcoded-secrets">Hardcoded Secrets</a></li>
-        <li><a href="/log-forging">Log Forging</a></li>
-        <li><a href="/xpath-injection">XPath Injection</a></li>
-        <li><a href="/ldap-injection">LDAP Injection</a></li>
-    </ul>
+</div>
 </body>
 </html>
