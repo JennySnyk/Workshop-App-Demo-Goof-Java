@@ -13,7 +13,7 @@ import javax.xml.xpath.XPathFactory;
 import java.io.StringReader;
 
 @Controller
-public class XPathInjectionController {
+public class XPathInjection {
 
     private final String xml = "<users><user><name>admin</name><password>s3cr3t</password></user><user><name>user</name><password>p@ssw0rd</password></user></users>";
 

@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class LogForgingController {
+public class LogForging {
 
-    private static final Logger logger = LoggerFactory.getLogger(LogForgingController.class);
+    private static final Logger logger = LoggerFactory.getLogger(LogForging.class);
 
     @GetMapping("/log-forging")
     @ResponseBody

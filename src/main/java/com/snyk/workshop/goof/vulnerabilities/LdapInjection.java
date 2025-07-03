@@ -11,7 +11,7 @@ import javax.naming.directory.InitialDirContext;
 import java.util.Hashtable;
 
 @Controller
-public class LdapInjectionController {
+public class LdapInjection {
 
     @GetMapping("/ldap-injection")
     @ResponseBody

@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 @Controller
-public class SsrfController {
+public class Ssrf {
 
     @GetMapping("/ssrf")
     @ResponseBody

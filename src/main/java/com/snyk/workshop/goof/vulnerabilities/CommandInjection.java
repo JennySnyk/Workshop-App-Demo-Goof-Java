@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 @Controller
-public class CommandInjectionController {
+public class CommandInjection {
 
     @GetMapping("/command-injection")
     @ResponseBody

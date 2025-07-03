@@ -10,7 +10,7 @@ import java.io.ObjectInputStream;
 import java.util.Base64;
 
 @Controller
-public class InsecureDeserializationController {
+public class InsecureDeserialization {
 
     @GetMapping("/insecure-deserialization")
     @ResponseBody

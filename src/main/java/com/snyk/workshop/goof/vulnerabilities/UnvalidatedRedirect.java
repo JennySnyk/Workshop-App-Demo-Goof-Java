@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-public class UnvalidatedRedirectController {
+public class UnvalidatedRedirect {
 
     @GetMapping("/unvalidated-redirect")
     public void unvalidatedRedirect(@RequestParam(value = "url", defaultValue = "/") String url, HttpServletResponse response) throws IOException {

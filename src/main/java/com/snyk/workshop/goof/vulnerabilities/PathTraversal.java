@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @Controller
-public class PathTraversalController {
+public class PathTraversal {
 
     @GetMapping("/path-traversal")
     @ResponseBody

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.security.MessageDigest;
 
 @Controller
-public class InsecureCryptoController {
+public class InsecureCrypto {
 
     @GetMapping("/insecure-crypto")
     @ResponseBody

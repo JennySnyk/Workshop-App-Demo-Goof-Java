@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 @Controller
-public class SqlInjectionController {
+public class SqlInjection {
 
     @GetMapping("/sqli")
     @ResponseBody
