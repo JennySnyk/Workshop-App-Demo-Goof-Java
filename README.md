@@ -1,57 +1,57 @@
-# Workshop App Demo - Java Edition
+# Workshop App Demo - Goof (Java Edition)
 
-This is a deliberately vulnerable Java application built with Spring Boot, designed for security demonstrations and workshops. It contains a wide range of vulnerabilities that can be detected by Snyk.
+This is a deliberately vulnerable web application created for security demonstration purposes. It is designed to showcase a variety of security vulnerabilities, making it an ideal tool for security training and workshops.
 
-## How to Run
+## Features
 
-1.  **Build the application:**
+- **SAST Vulnerabilities**: A dozen examples based on the OWASP Top 10.
+- **SCA Vulnerabilities**: Includes dependencies with known critical vulnerabilities like Log4Shell.
+- **Container Vulnerabilities**: A `Dockerfile` using a known vulnerable base image.
+- **IaC Misconfigurations**: Terraform files with common security flaws.
+
+## Getting Started
+
+### Prerequisites
+
+- [Java 11 or higher](https://www.oracle.com/java/technologies/downloads/)
+- [Maven](https://maven.apache.org/)
+
+### Installation & Running the App
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/JennySnyk/Workshop-App-Demo-Goof-Java.git
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd Workshop-App-Demo-Goof-Java
+    ```
+3.  **Build the application:**
     ```bash
     mvn clean install
     ```
-2.  **Run the application:**
+4.  **Start the application:**
     ```bash
     java -jar target/goof-0.0.1-SNAPSHOT.jar
     ```
-3.  Open your browser to [http://localhost:8080](http://localhost:8080).
 
-## Vulnerabilities Included
+The application will be available at `http://localhost:8080`.
 
-### Open Source (SCA) Vulnerabilities
+## Vulnerability Details
 
-The `pom.xml` file includes a dozen dependencies with known vulnerabilities, including:
+Here are some of the vulnerabilities included in this application and how to trigger them:
 
-*   **Log4Shell** (`log4j-core:2.14.1`)
-*   **Insecure Deserialization** (`commons-collections:3.2.1`, `jackson-databind:2.11.0`, `xstream:1.4.10`, `snakeyaml:1.26`)
-*   **Remote Code Execution** (`struts2-core:2.3.30`, `h2:1.4.197`)
-*   **Denial of Service** (`commons-fileupload:1.3.3`)
-*   **HTTP Request Smuggling** (`netty-codec-http:4.1.45.Final`)
-*   **Weak Cryptography** (`bcprov-jdk15:1.46`)
-*   And more...
+- **SQL Injection:**
+  - `http://localhost:8080/sqli?id=1' OR '1'='1`
+- **Cross-Site Scripting (XSS):**
+  - `http://localhost:8080/xss?input=<script>alert('xss')</script>`
+- **Command Injection:**
+  - `http://localhost:8080/command-injection?host=8.8.8.8; ls`
+- **Path Traversal:**
+  - `http://localhost:8080/path-traversal?file=../../../../../../../../../../../../etc/passwd`
+- **Server-Side Request Forgery (SSRF):**
+  - `http://localhost:8080/ssrf?url=https://www.google.com`
 
-### Static Application Security Testing (SAST) Vulnerabilities
+## Disclaimer
 
-The application contains the following SAST vulnerabilities, each in its own controller in the `com.snyk.workshop.goof.vulnerabilities` package:
-
-*   **SQL Injection** (`/sqli`)
-*   **Cross-Site Scripting (XSS)** (`/xss`)
-*   **Command Injection** (`/command-injection`)
-*   **Path Traversal** (`/path-traversal`)
-*   **Insecure Deserialization** (`/insecure-deserialization`)
-*   **Server-Side Request Forgery (SSRF)** (`/ssrf`)
-*   **Unvalidated Redirect** (`/unvalidated-redirect`)
-*   **Insecure Cryptography** (`/insecure-crypto`)
-*   **Hardcoded Secrets** (`/hardcoded-secrets`)
-*   **Log Forging** (`/log-forging`)
-*   **XPath Injection** (`/xpath-injection`)
-*   **LDAP Injection** (`/ldap-injection`)
-
-### Container Vulnerabilities
-
-The `Dockerfile` is based on an old, vulnerable version of `openjdk:8u151-jre-alpine`.
-
-### Infrastructure as Code (IaC) Misconfigurations
-
-The `main.tf` file contains the following misconfigurations:
-
-*   An S3 bucket with public read access.
-*   An unencrypted SQS queue.
+**This application is for educational and demonstration purposes only. Do not deploy it in a production environment.**
