@@ -10,6 +10,35 @@ h1, h2 {
   color: #333;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+.delete-button {
+  background-color: #f44336; /* Red */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px 12px;
+  margin: 0; /* Override default button margin */
+}
+
+.delete-button:hover {
+  background-color: #da190b;
+}
+
 .container {
   background-color: #fff;
   padding: 2rem;

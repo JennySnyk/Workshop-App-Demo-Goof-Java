@@ -20,9 +20,9 @@
         <ul>
             <li th:each="todo : ${todos}">
                 <span th:text="${todo.text}"></span>
-                <form th:action="@{/delete}" method="post" style="display:inline;">
+                <form th:action="@{/delete}" method="post">
                     <input type="hidden" name="id" th:value="${todo.id}" />
-                    <button type="submit" style="background-color: #f44336; float: right;">Delete</button>
+                    <button type="submit" class="delete-button">Delete</button>
                 </form>
             </li>
         </ul>
