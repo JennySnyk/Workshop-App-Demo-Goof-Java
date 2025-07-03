@@ -48,3 +48,8 @@ buildNumber.properties
 
 # VS Code
 .vscode/
+
+# Snyk reports
+snyk_*.json
+snyk_*.html
+
