@@ -73,7 +73,7 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-codec-http</artifactId>
-            <version>4.1.45.Final</version> <!-- HTTP Request Smuggling -->
+            <version>4.1.125.Final</version> <!-- HTTP Request Smuggling -->
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
